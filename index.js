@@ -5,6 +5,10 @@ var LimitlessLEDRGB = require('./lib/LimitlessLEDRGB')
 // Give our module a stream interface
 util.inherits(myModule,stream);
 
+// router must be configured to connect to your internet connected LAN
+const ipLimitlessLEDRouter = "192.168.x.x";
+const enabled = false;
+
 /**
  * Called when our client starts up
  * @constructor
@@ -25,9 +29,13 @@ function myModule(opts,app) {
 
   app.on('client::up',function(){
 
-
-    // Register a device
-    self.emit('register', new LimitlessLEDRGB("10.0.1.10"));
+    if (enabled) {
+      // Register a device 
+     self.emit('register', new LimitlessLEDRGB(ipLimitlessLEDRouter));
+  }
+  else {
+    console.log('LimitlessLED module is not enabled.');
+  }
   });
 };
 
