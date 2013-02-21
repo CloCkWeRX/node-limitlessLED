@@ -25,14 +25,6 @@ function myModule(opts,app) {
 
   app.on('client::up',function(){
 
-    // The client is now connected to the cloud
-
-    // Do stuff with opts, and then commit it to disk
-    if (!opts.hasMutated) {
-      opts.hasMutated = true;
-    }
-
-    self.save();
 
     // Register a device
     self.emit('register', new LimitlessLEDRGB("10.0.1.10"));
