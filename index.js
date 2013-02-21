@@ -31,11 +31,11 @@ function myModule(opts,app) {
 
     if (enabled) {
       // Register a device 
-     self.emit('register', new LimitlessLEDRGB(ipLimitlessLEDRouter));
-  }
-  else {
-    console.log('LimitlessLED module is not enabled.');
-  }
+      self.emit('register', new LimitlessLEDRGB(ipLimitlessLEDRouter));
+    }
+    else {
+      console.log('LimitlessLED module is not enabled.');
+    }
   });
 };
 
