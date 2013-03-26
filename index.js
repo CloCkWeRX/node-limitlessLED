@@ -34,7 +34,7 @@ function myModule(opts,app) {
       self.emit('register', new LimitlessLEDRGB(ipLimitlessLEDRouter));
     }
     else {
-      console.log('LimitlessLED module is not enabled.');
+      app.log.info('LimitlessLED module is not enabled.');
     }
   });
 };
