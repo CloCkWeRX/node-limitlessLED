@@ -7,6 +7,7 @@ util.inherits(myModule,stream);
 
 // router must be configured to connect to your internet connected LAN
 const ipLimitlessLEDRouter = "192.168.x.x";
+const portLimitlessLEDRouter = "50000"
 const enabled = false;
 
 /**
@@ -31,7 +32,7 @@ function myModule(opts,app) {
 
     if (enabled) {
       // Register a device 
-      self.emit('register', new LimitlessLEDRGB(ipLimitlessLEDRouter));
+      self.emit('register', new LimitlessLEDRGB(ipLimitlessLEDRouter, portLimitlessLEDRouter));
     }
     else {
       app.log.info('LimitlessLED module is not enabled.');
