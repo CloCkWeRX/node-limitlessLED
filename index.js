@@ -7,7 +7,7 @@ util.inherits(myModule,stream);
 
 // router must be configured to connect to your internet connected LAN
 const ipLimitlessLEDRouter = "192.168.x.x";
-const portLimitlessLEDRouter = "50000"
+const portLimitlessLEDRouter = "50000";
 const enabled = false;
 
 /**
