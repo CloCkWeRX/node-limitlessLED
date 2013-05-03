@@ -1,14 +1,10 @@
 var LimitlessLEDRGB = require('./lib/LimitlessLEDRGB')
   , util = require('util')
-  , stream = require('stream');
+  , stream = require('stream')
+  , configHandlers = require('./lib/config')
 
 // Give our module a stream interface
 util.inherits(myModule,stream);
-
-// router must be configured to connect to your internet connected LAN
-const ipLimitlessLEDRouter = "192.168.x.x";
-const portLimitlessLEDRouter = "50000";
-const enabled = false;
 
 /**
  * Called when our client starts up
@@ -28,15 +24,16 @@ function myModule(opts,app) {
 
   var self = this;
 
-  app.on('client::up',function(){
+  this._log = app.log;
+  this._opts = opts;
 
-    if (enabled) {
+  if (typeof this._opts.lllrgb === "undefined") {
+    this._opts.lllrgb = new LimitlessLEDRGB();
+  }
+
+  app.on('client::up',function(){
       // Register a device 
-      self.emit('register', new LimitlessLEDRGB(ipLimitlessLEDRouter, portLimitlessLEDRouter));
-    }
-    else {
-      app.log.info('LimitlessLED module is not enabled.');
-    }
+      self.emit('register', self._opts.lllrgb);
   });
 };
 
@@ -44,9 +41,25 @@ function myModule(opts,app) {
  * Called when config data is received from the cloud
  * @param  {Object} config Configuration data
  */
-myModule.prototype.config = function(config) {
+myModule.prototype.config = function(rpc, cb) {
+  var self = this;
 
+  if (!rpc) {
+    return configHandlers.probe.call(this,cb);
+  }
+
+  switch (rpc.method) {
+    case 'get_ip_port':   return configHandlers.get_ip_port.call(this,rpc.params,cb); break;
+    case 'store_ip_port':  return configHandlers.store_ip_port.call(this,rpc.params,cb); break;
+    default:               return cb(true);                                              break;
+  }
 };
+
+myModule.prototype.setIpPort = function(ipAddress, port) {
+  this._opts.lllrgb.setIpPort(ipAddress, port);
+  this._opts.lllrgb.emit('data', '000000');
+}
 
 // Export it
 module.exports = myModule;
+
