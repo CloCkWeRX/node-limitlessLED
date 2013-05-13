@@ -2,15 +2,16 @@
 
 
 ==================
-ninja-limitlessLED
+ninja-limitlessLED (Same as MiLight, EasyBulb, ...)
 ==================
 
 NinjaBlocks module for LimitlessLED lights
 
-Currently disabled by default in the client, but can be easily enabled by editing index.js:
+Configurable via the dashboard:
  - configure the LimitlessLED router to be on your network, noting it's IP address
- - set the constant "ipLimitlessLEDRouter" to the IP address of the LimitlessLED router
- - set the constant "enabled" to be true
+ - click the Drivers button in the top right corner of the dashboard
+ - after the drivers for the connected block have displayed, click configure of the LimitlessLED driver
+ - Enter the IP address and confirm
 
 TODO:
 - Implement light protocol instead of simple RGB LED
