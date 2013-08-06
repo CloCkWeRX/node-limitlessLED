@@ -27,14 +27,12 @@ function myModule(opts,app) {
   this._log = app.log;
   this._opts = opts;
 
-  if (typeof this._opts.lllrgb === "undefined") {
-    this._opts.lllrgb = new LimitlessLEDRGB();
-  }
-
   app.on('client::up',function(){
-      // Register a device 
-      self.emit('register', self._opts.lllrgb);
-  });
+      // Register a device
+      if (opts.ipAddress) {
+        this.register();
+      }
+  }.bind(this));
 };
 
 /**
@@ -56,9 +54,16 @@ myModule.prototype.config = function(rpc, cb) {
 };
 
 myModule.prototype.setIpPort = function(ipAddress, port) {
-  this._opts.lllrgb.setIpPort(ipAddress, port);
-  this._opts.lllrgb.emit('data', '000000');
-}
+  this._opts.ipAddress = ipAddress;
+  this._opts.port = port;
+  this.save();
+  this.register();
+};
+
+myModule.prototype.register = function() {
+  var llrgb = new LimitlessLEDRGB(this._opts.ipAddress, this._opts.port);
+  this.emit('register', llrgb);
+};
 
 // Export it
 module.exports = myModule;
