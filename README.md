@@ -2,6 +2,8 @@
 
 NinjaBlocks module for LimitlessLED lights (Same as MiLight, EasyBulb, ...)
 
+![Widgets](http://i.imgur.com/yzq4bPl.png)
+
 ### Setting up your WiFi Receiver Bridge
 
 Your Ninja Block will need access to the WiFi Receiver Bridge to control your lights.
