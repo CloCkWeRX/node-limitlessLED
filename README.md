@@ -1,6 +1,3 @@
-4/30/13 - Added port variable - default: 50000
-
-
 ## ninja-limitlessLED
 
 NinjaBlocks module for LimitlessLED lights (Same as MiLight, EasyBulb, ...)
