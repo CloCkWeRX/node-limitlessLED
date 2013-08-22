@@ -31,6 +31,44 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
 * Press "Restart System".
 * If you got your settings right, the LINK light will come up and your bridge will be ready.
 
+### Pairing lights
+
+Pair lights using the "Wifi Controller 2" app for iPhone, or any app that can work with the Wifi bridge.
+The app remote will be the same as the provided physical remotes, so use the same pairing. Once done, 
+your LimitlessLED lights will be paired to your WiFi bridge rather than the remote,
+and ready for the Ninja driver to use.
+
 ### Adding to Dashboard
 
+Initial setup:
+* Press the `Drivers` button in the top right of the Dashboard
+* Press `Configure` next to Ninja Limitlessled
+* Press `Configure LimitlessLED Hub`
+* Enter the IP Address of the "WiFi Receiver Bridge" (and enter the port if you changed it)
+* Press `Save`
+
+To set up your actual light groups:
+* Press the `Drivers` button in the top right of the Dashboard
+* Press `Configure` next to Ninja Limitlessled
+* Press `Add Light Group`
+* RGB:
+  * RGB currently only supports single "All" addressing, so select "All" as the Light Group
+  * Select "RGB" as the color
+* White:
+  * Select the colour group (four are supported) or "All" for a device that controls all 4 colour groups.
+  * Select "White" as the color
+* Press `Save`
+
 ### Adding the custom widget to BETA Dashboard
+
+Enable the Beta Dashboard if you haven't already:
+* Go to the `Settings` icon
+* Select the `Preferences` tab
+* Toggle `Enable Beta Dashboard` to Enabled
+* You can now see the Beta Dashboard icon on the left
+
+You will likely see RGB Color Wheel widgets for your LimitlessLED devices, now use the LimitlessLED widget:
+ * Find the appropriate widget (currently look for "allrgb" or "1white" ... "4white" in the device type)
+ * Paste `https://gist.github.com/theojulienne/b8e3e09729faa49353b4` in the Gist box and click Gist/Import
+ * Your widget will change to give you a color/temperature wheel, brightness slider and on/off button.
+
