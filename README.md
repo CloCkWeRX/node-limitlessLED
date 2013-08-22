@@ -31,6 +31,13 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
 * Press "Restart System".
 * If you got your settings right, the LINK light will come up and your bridge will be ready.
 
+### Pairing lights
+
+Pair lights using the "Wifi Controller 2" app for iPhone, or any app that can work with the Wifi bridge.
+The app remote will be the same as the provided physical remotes, so use the same pairing. Once done, 
+your LimitlessLED lights will be paired to your WiFi bridge rather than the remote,
+and ready for the Ninja driver to use.
+
 ### Adding to Dashboard
 
 Initial setup:
