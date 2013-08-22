@@ -26,19 +26,19 @@ function LimitlessLEDDriver(opts,app) {
 
   this._log = app.log;
   this._opts = opts;
-  if (!this._opts.lightGroups && opts.ipAddress) { // hopefully backwards compatible
-    this._opts.lightGroups = [
-      {
-        'number': 'all',
-        'colorType': 'rgb'
-      }
-    ];
+
+  if ( !this._opts.lightGroups ) {
+    this._opts.lightGroups = [];
   }
+
+  this.registeredDevices = {};
+
+  console.log( 'Light Groups: ', this._opts.lightGroups );
 
   app.on('client::up',function(){
       // Register a device
       if (opts.ipAddress) {
-        this.registerAll( );
+		this.registerAll( );
       }
   }.bind(this));
 };
@@ -81,7 +81,6 @@ LimitlessLEDDriver.prototype.addLightGroup = function(groupNumber, groupColorTyp
     'number': groupNumber,
     'colorType': groupColorType
   };
-  
   this._opts.lightGroups.push( newGroup );
   this.save();
   this.registerGroup( newGroup );
@@ -95,8 +94,16 @@ LimitlessLEDDriver.prototype.setIpPort = function(ipAddress, port) {
 };
 
 LimitlessLEDDriver.prototype.registerGroup = function(group) {
-  var llrgb = new LimitlessLEDRGB(this._opts.ipAddress, this._opts.port, group);
-  this.emit('register', llrgb);
+  var device;
+  var key = group.number + group.colorType;
+  
+  if ( key in this.registeredDevices ) {
+	device = this.registeredDevices[key];
+  } else {
+    device = new LimitlessLEDRGB(this, group);
+  }
+
+  this.emit('register', device);
 };
 
 LimitlessLEDDriver.prototype.registerAll = function() {

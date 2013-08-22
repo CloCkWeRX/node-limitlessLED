@@ -1,6 +1,6 @@
 {
   "name": "ninja-limitlessLED",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Control LimitlessLED lights",
   "main": "index.js",
   "scripts": {
