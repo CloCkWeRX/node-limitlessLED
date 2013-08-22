@@ -52,3 +52,15 @@ To set up your actual light groups:
   * Select "White" as the color
 
 ### Adding the custom widget to BETA Dashboard
+
+Enable the Beta Dashboard if you haven't already:
+* Go to the `Settings` icon
+* Select the `Preferences` tab
+* Toggle `Enable Beta Dashboard` to Enabled
+* You can now see the Beta Dashboard icon on the left
+
+You will likely see RGB Color Wheel widgets for your LimitlessLED devices, now use the LimitlessLED widget:
+ * Find the appropriate widget (currently look for "allrgb" or "1white" ... "4white" in the device type)
+ * Paste `https://gist.github.com/theojulienne/b8e3e09729faa49353b4` in the Gist box and click Gist/Import
+ * Your widget will change to give you a color/temperature wheel, brightness slider and on/off button.
+
