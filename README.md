@@ -33,4 +33,22 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
 
 ### Adding to Dashboard
 
+Initial setup:
+* Press the `Drivers` button in the top right of the Dashboard
+* Press `Configure` next to Ninja Limitlessled
+* Press `Configure LimitlessLED Hub`
+* Enter the IP Address of the "WiFi Receiver Bridge" (and enter the port if you changed it)
+* Press `Save`, and a default all-channel RGB device will be added (if you're using just RGB, you're done!).
+
+To set up your actual light groups:
+* Press the `Drivers` button in the top right of the Dashboard
+* Press `Configure` next to Ninja Limitlessled
+* Press `Add Light Group`
+* RGB:
+  * RGB currently only supports single "All" addressing, so select "All" as the Light Group
+  * Select "RGB" as the color
+* White:
+  * Select the colour group (four are supported) or "All" for a device that controls all 4 colour groups.
+  * Select "White" as the color
+
 ### Adding the custom widget to BETA Dashboard
