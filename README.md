@@ -45,7 +45,7 @@ Initial setup:
 * Press `Configure` next to Ninja Limitlessled
 * Press `Configure LimitlessLED Hub`
 * Enter the IP Address of the "WiFi Receiver Bridge" (and enter the port if you changed it)
-* Press `Save`, and a default all-channel RGB device will be added (if you're using just RGB, you're done!).
+* Press `Save`
 
 To set up your actual light groups:
 * Press the `Drivers` button in the top right of the Dashboard
@@ -57,6 +57,7 @@ To set up your actual light groups:
 * White:
   * Select the colour group (four are supported) or "All" for a device that controls all 4 colour groups.
   * Select "White" as the color
+* Press `Save`
 
 ### Adding the custom widget to BETA Dashboard
 
