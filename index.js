@@ -4,7 +4,7 @@ var LimitlessLEDRGB = require('./lib/LimitlessLEDRGB')
   , configHandlers = require('./lib/config')
 
 // Give our module a stream interface
-util.inherits(myModule,stream);
+util.inherits(LimitlessLEDDriver,stream);
 
 /**
  * Called when our client starts up
@@ -20,17 +20,25 @@ util.inherits(myModule,stream);
  * @fires register - Emit this when you wish to register a device (see Device)
  * @fires config - Emit this when you wish to send config data back to the cloud
  */
-function myModule(opts,app) {
+function LimitlessLEDDriver(opts,app) {
 
   var self = this;
 
   this._log = app.log;
   this._opts = opts;
+  if (!this._opts.lightGroups && opts.ipAddress) { // hopefully backwards compatible
+    this._opts.lightGroups = [
+      {
+        'number': 'all',
+        'colorType': 'rgb'
+      }
+    ];
+  }
 
   app.on('client::up',function(){
       // Register a device
       if (opts.ipAddress) {
-        this.register();
+        this.registerAll( );
       }
   }.bind(this));
 };
@@ -39,7 +47,7 @@ function myModule(opts,app) {
  * Called when config data is received from the cloud
  * @param  {Object} config Configuration data
  */
-myModule.prototype.config = function(rpc, cb) {
+LimitlessLEDDriver.prototype.config = function(rpc, cb) {
   var self = this;
 
   if (!rpc) {
@@ -47,24 +55,57 @@ myModule.prototype.config = function(rpc, cb) {
   }
 
   switch (rpc.method) {
-    case 'get_ip_port':   return configHandlers.get_ip_port.call(this,rpc.params,cb); break;
-    case 'store_ip_port':  return configHandlers.store_ip_port.call(this,rpc.params,cb); break;
-    default:               return cb(true);                                              break;
+    /* configuring the hub */
+    case 'manual_config_hub':
+      return configHandlers.get_ip_port.call(this,rpc.params,cb);
+      break;
+    case 'manual_config_hub_store':
+      return configHandlers.manual_config_hub_store.call(this,rpc.params,cb);
+      break;
+    
+    /* adding light groups */
+    case 'manual_group_add':
+      return configHandlers.manual_group_add.call(this,rpc.params,cb);
+      break;
+    case 'manual_group_add_post':
+      return configHandlers.manual_group_add_post.call(this,rpc.params,cb);
+      break;
+    
+    /* */
+    default: return cb(true); break;
   }
 };
 
-myModule.prototype.setIpPort = function(ipAddress, port) {
+LimitlessLEDDriver.prototype.addLightGroup = function(groupNumber, groupColorType) {
+  var newGroup = {
+    'number': groupNumber,
+    'colorType': groupColorType
+  };
+  
+  this._opts.lightGroups.push( newGroup );
+  this.save();
+  this.registerGroup( newGroup );
+};
+
+LimitlessLEDDriver.prototype.setIpPort = function(ipAddress, port) {
   this._opts.ipAddress = ipAddress;
   this._opts.port = port;
   this.save();
-  this.register();
+  this.registerAll();
 };
 
-myModule.prototype.register = function() {
-  var llrgb = new LimitlessLEDRGB(this._opts.ipAddress, this._opts.port);
+LimitlessLEDDriver.prototype.registerGroup = function(group) {
+  var llrgb = new LimitlessLEDRGB(this._opts.ipAddress, this._opts.port, group);
   this.emit('register', llrgb);
 };
 
+LimitlessLEDDriver.prototype.registerAll = function() {
+  var lightGroups = this._opts.lightGroups;
+  for ( var i = 0; i < lightGroups.length; i++ ) {
+    this.registerGroup( lightGroups[i] );
+  }
+};
+
 // Export it
-module.exports = myModule;
+module.exports = LimitlessLEDDriver;
 
