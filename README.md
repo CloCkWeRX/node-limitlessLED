@@ -40,6 +40,29 @@ The app remote will be the same as the provided physical remotes, so use the sam
 ("speed" for RGB, "channel on" for whites). Once done, your LimitlessLED lights will be paired to your 
 WiFi bridge rather than the remote, and ready for the Ninja driver to use.
 
+### Install the driver on your Ninja Block
+
+* SSH into your block: `ssh ubuntu@ninjablock.local`
+* `cd /opt/ninja/drivers`
+* `git clone https://github.com/theojulienne/ninja-limitlessLED.git ninja-limitlessLED-new`
+* Restart the ninjablocks client: `sudo service ninjablock restart`
+
+```sh
+ubuntu@ninjablock:~$ cd /opt/ninja/drivers/
+ubuntu@ninjablock:/opt/ninja/drivers$ git clone https://github.com/theojulienne/ninja-limitlessLED.git ninja-limitlessLED-new
+Cloning into 'ninja-limitlessLED-new'...
+remote: Counting objects: 120, done.
+remote: Compressing objects: 100% (64/64), done.
+remote: Total 120 (delta 55), reused 115 (delta 50)
+Receiving objects: 100% (120/120), 19.91 KiB, done.
+Resolving deltas: 100% (55/55), done.
+ubuntu@ninjablock:/opt/ninja/drivers$ sudo service ninjablock restart
+[sudo] password for ubuntu:
+ninjablock stop/waiting
+ninjablock start/running, process 1339
+ubuntu@ninjablock:/opt/ninja/drivers$
+```
+
 ### Adding to Dashboard
 
 Initial setup:
