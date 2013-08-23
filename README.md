@@ -43,17 +43,6 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
 
 * If you got your settings right, the LINK indicator on the bridge will light up and your bridge will be ready.
 
-Some common problems and reasons:
-* Your WiFi network can't contain spaces, special characters, or anything else that confuses the interface.
-  The interface is pretty flakey, so you'll actually need to change your network SSID or password if it's too
-  complex! Hopefully limitless will release a better firmware update in the future.
-* If the LINK light fails to come on: You probably configured it wrong. Try a different wifi setting, and make
-  doubly sure you save the right section in the right order.
-* If the bridge is connected and the LINK light turns on, but you can't pair a phone app to it, try resetting
-  everything (unplug, replug), make sure you can access the bridge web UI by visiting `http://<bridge ip you entered>/`
-  in your browser. Make sure the IP address is set right on both the web UI and your phone app, pray to the
-  test gods some more, etc.
-
 ### Pairing lights
 
 Follow the instructions included in the official [WiFi Bridge Instruction PDF](http://www.limitlessled.com/download/LimitlessLED_WiFiBridgeInstructions_July2012_version2.pdf)
@@ -134,6 +123,31 @@ You will likely see RGB Color Wheel widgets for your LimitlessLED devices, now u
  * Find the appropriate widget (currently look for "allrgb" or "1white" ... "4white" in the device type)
  * Paste `https://gist.github.com/theojulienne/b8e3e09729faa49353b4` in the Gist box and click Gist/Import
  * Your widget will change to give you a color/temperature wheel, brightness slider and on/off button.
+
+
+### Troubleshooting
+
+The WiFi Receiver Bridge is very temperamental, it will probably take a couple of tries to get working.
+
+Some notes that may help:
+
+* Your WiFi network can't contain spaces, special characters, or anything else that confuses the interface.
+  The interface is pretty flakey, so you'll actually need to change your network SSID or password if it's too
+  complex! Hopefully limitless will release a better firmware update in the future.
+* If the LINK light fails to come on: You probably configured it wrong. Try a different wifi setting, and make
+  doubly sure you save the right section in the right order.
+* If the bridge is connected and the LINK light turns on, but you can't pair a phone app to it, try resetting
+  everything (unplug, replug), make sure you can access the bridge web UI by visiting `http://<bridge ip you entered>/`
+  in your browser. Make sure the IP address is set right on both the web UI and your phone app, pray to the
+  test gods some more, etc.
+* If a phone app works but your Ninja Block can't control anything, make sure the Ninja Block has unrestricted access
+  to the WiFi Receiver Bridge and is on the same local network. You can check this on your Ninja Block via SSH:
+
+```
+ubuntu@ninjablock:/opt/ninja$ curl -i --user "admin:000000" http://<wifi-bridge-ip>/
+HTTP/1.0 200 OK
+... more data ...
+```
 
 ### Caveats
 
