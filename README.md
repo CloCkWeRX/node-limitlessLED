@@ -20,6 +20,9 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
   * Key Format: `ASCII` (if you use a text string as your password)
   * Encryption Key: your wifi network password
 * **Save** in the Wireless Settings section (NOT at the bottom of the page)
+
+![Wireless Settings](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.38.50%20AM.png)
+
 * Once the page reloads, in the network settings section:
   * Untick DHCP Enable
   * Fixed IP Address: enter the IP address for the bridge.
@@ -29,8 +32,11 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
   * Gateway Address: usually your IP with ".1" at the end (use the same as your computer uses)
   * DNS Address: usually the same as Gateway Address (use the same as your computer uses)
 * **Save** in the Network Settings section (NOT at the bottom of the page)
+
+![Network Settings](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.39.05%20AM.png)
+
 * Go to the "System" tab
-* Press "Restart System".
+* Press "Restart System". ![Restart location](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.40.16%20AM.png)
 * If you got your settings right, the LINK light will come up and your bridge will be ready.
 
 ### Pairing lights
