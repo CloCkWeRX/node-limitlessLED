@@ -61,14 +61,18 @@ also not be able to control them!**
 ### Install the driver on your Ninja Block
 
 * SSH into your block: `ssh ubuntu@ninjablock.local`
-* `cd /opt/ninja/drivers`
-* `git clone https://github.com/theojulienne/ninja-limitlessLED.git ninja-limitlessLED-new`
+* Change to the driver directory: `cd /opt/ninja/drivers`
+* Remove the old driver: `rm -rf ninja-limitlessLED`
+* Remove any old driver configuration left over: `rm -rf ../config/ninja-limitlessLED`
+* Get the new driver: `git clone https://github.com/theojulienne/ninja-limitlessLED.git`
 * Restart the ninjablocks client: `sudo service ninjablock restart`
 
 ```sh
 ubuntu@ninjablock:~$ cd /opt/ninja/drivers/
-ubuntu@ninjablock:/opt/ninja/drivers$ git clone https://github.com/theojulienne/ninja-limitlessLED.git ninja-limitlessLED-new
-Cloning into 'ninja-limitlessLED-new'...
+ubuntu@ninjablock:/opt/ninja/drivers$ rm -rf ninja-limitlessLED
+ubuntu@ninjablock:/opt/ninja/drivers$ rm -rf ../config/ninja-limitlessLED
+ubuntu@ninjablock:/opt/ninja/drivers$ git clone https://github.com/theojulienne/ninja-limitlessLED.git
+Cloning into 'ninja-limitlessLED'...
 remote: Counting objects: 120, done.
 remote: Compressing objects: 100% (64/64), done.
 remote: Total 120 (delta 55), reused 115 (delta 50)
@@ -85,16 +89,14 @@ ubuntu@ninjablock:/opt/ninja/drivers$
 
 Initial setup:
 * Press the `Drivers` button in the top right of the Dashboard
-* Press `Configure` next to `Ninja Limitlessled New` (or `Ninja Limitlessled` if you installed it 
-  over the top of the previous version)
+* Press `Configure` next to `Ninja Limitlessled`
 * Press `Configure LimitlessLED Hub`
 * Enter the IP Address of the "WiFi Receiver Bridge" (and enter the port if you changed it)
 * Press `Save`
 
 To set up your actual light groups:
 * Press the `Drivers` button in the top right of the Dashboard
-* Press `Configure` next to `Ninja Limitlessled New` (or `Ninja Limitlessled` if you installed it 
-  over the top of the previous version)
+* Press `Configure` next to `Ninja Limitlessled`
 * Press `Add Light Group`
 * RGB:
   * RGB currently only supports a single addressing of all RGB lights, so select "All" as the Light Group
@@ -119,7 +121,8 @@ To get started, enable the Beta Dashboard if you haven't already:
 * Toggle `Enable Beta Dashboard` to Enabled
 * You can now see the Beta Dashboard icon on the left
 
-You will likely see RGB Color Wheel widgets for your LimitlessLED devices, now use the LimitlessLED widget:
+If for some reason you see RGB Color Wheel widgets instead of nice LimitlessLED widgets, you can manually
+load the new widget:
  * Find the appropriate widget (currently look for "allrgb" or "1white" ... "4white" in the device type)
  * Paste `https://gist.github.com/theojulienne/b8e3e09729faa49353b4` in the Gist box and click Gist/Import
  * Your widget will change to give you a color/temperature wheel, brightness slider and on/off button.
