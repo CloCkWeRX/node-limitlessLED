@@ -76,7 +76,7 @@ ubuntu@ninjablock:/opt/ninja/drivers$
 
 Initial setup:
 * Press the `Drivers` button in the top right of the Dashboard
-* Press `Configure` next to Ninja Limitlessled
+* Press `Configure` next to `Ninja Limitlessled New` (or `Ninja Limitlessled` if you installed it over the top of the previous version)
 * Press `Configure LimitlessLED Hub`
 * Enter the IP Address of the "WiFi Receiver Bridge" (and enter the port if you changed it)
 * Press `Save`
