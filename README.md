@@ -106,7 +106,7 @@ To set up your actual light groups:
   * Select "White" as the color
 * Press `Save`
 * A new widget will appear to control your light group. Notes on the legacy dashboard widget:
-  * RGB lights change color based on "Hue", white lights ignore this value.
+  * RGB lights change color based on "Hue".
   * White light color temperature can't be controlled, use the Beta Dashboard widget (see below) for this instead.
   * Both white and RGB lights support on/off and brightness.
 
