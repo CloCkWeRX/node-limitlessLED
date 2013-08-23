@@ -6,12 +6,15 @@ NinjaBlocks module for LimitlessLED lights (Same as MiLight, EasyBulb, ...)
 
 ### Setting up your WiFi Receiver Bridge
 
-Your Ninja Block will need access to the WiFi Receiver Bridge to control your lights.
+Your Ninja Block will need access to the [WiFi Receiver Bridge](http://www.limitlessled.com/shop/wifi-udp-receiver-bridge/) to control your lights.
 If you haven't yet got your WiFi Receiver Bridge on your wireless network, here's a quick guide:
 
 * Reset your Wifi Receiver Bridge
 * Connect your computer to the wifi network "wifi_socket"
 * Open your browser and visit `http://192.168.1.100`
+
+<img src="https://dl.dropboxusercontent.com/u/13788283/ninjadocs/limitless/wifi-settings-1.png" width="400" border="1" align="right">
+
 * In the wireless settings section:
   * Work Type: `Sta` (connects to your existing network as a client)
   * SSID: the exact name of your wifi network, case-sensitive
@@ -21,7 +24,7 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
   * Encryption Key: your wifi network password
 * **Save** in the Wireless Settings section (NOT at the bottom of the page)
 
-![Wireless Settings](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.38.50%20AM.png)
+<img src="https://dl.dropboxusercontent.com/u/13788283/ninjadocs/limitless/wifi-settings-2.png" width="400" border="1" align="right">
 
 * Once the page reloads, in the network settings section:
   * Untick DHCP Enable
@@ -33,14 +36,12 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
   * DNS Address: usually the same as Gateway Address (use the same as your computer uses)
 * **Save** in the Network Settings section (NOT at the bottom of the page)
 
-![Network Settings](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.39.05%20AM.png)
+<img src="https://dl.dropboxusercontent.com/u/13788283/ninjadocs/limitless/system-restart.png" width="400" border="1" align="right">
 
 * Go to the "System" tab
 * Press "Restart System".
 
-![Restart location](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.40.16%20AM.png)
-
-* If you got your settings right, the LINK light will come up and your bridge will be ready.
+* If you got your settings right, the LINK indicator on the bridge will light up and your bridge will be ready.
 
 ### Pairing lights
 
