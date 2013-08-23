@@ -97,7 +97,7 @@ To set up your actual light groups:
   over the top of the previous version)
 * Press `Add Light Group`
 * RGB:
-  * RGB currently only supports single "All" addressing, so select "All" as the Light Group
+  * RGB currently only supports a single addressing of all RGB lights, so select "All" as the Light Group
   * Select "RGB" as the color
 * White:
   * Select the colour group (four are supported) or "All" for a device that controls all 4 colour groups.
