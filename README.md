@@ -45,10 +45,14 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
 
 ### Pairing lights
 
-Pair lights using the "Wifi Controller 2" app for iPhone, or any app that can work with the Wifi bridge.
-The app remote will be the same as the provided physical remotes, so use the same pairing method
-("speed" for RGB, "channel on" for whites). Once done, your LimitlessLED lights will be paired to your 
-WiFi bridge rather than the remote, and ready for the Ninja driver to use.
+Pair lights using the "Wifi Controller 2" app for iPhone, or any app that can work with the Wifi bridge (note
+that the app must be able to talk to an arbitrary IP, not just the default of 192.168.0.100 - see the
+[WiFi Bridge Instruction PDF](http://www.limitlessled.com/download/LimitlessLED_WiFiBridgeInstructions_July2012_version2.pdf)
+ for more information).
+
+The app will present a similar interface to the provided physical remotes, so use the same pairing method
+("speed" for RGB, "channel on" for whites) as the original manual suggests. Once complete, your LimitlessLED
+lights will be paired to your WiFi bridge rather than the original remote, and ready for the Ninja driver to use!
 
 ### Install the driver on your Ninja Block
 
