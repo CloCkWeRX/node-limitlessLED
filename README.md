@@ -106,3 +106,13 @@ You will likely see RGB Color Wheel widgets for your LimitlessLED devices, now u
  * Paste `https://gist.github.com/theojulienne/b8e3e09729faa49353b4` in the Gist box and click Gist/Import
  * Your widget will change to give you a color/temperature wheel, brightness slider and on/off button.
 
+### Caveats
+
+* The "WiFi Receiver Bridge" doesn't provide any feedback, so if you set the IP Address or port wrong, the
+  widget will still display but will not be able to actuate. Similarly, you should make sure that all the LEDs
+  are paired to the bridge and work completely **before** using the ninja driver, by using one of the free 
+  iPhone/Android applications suggested by limitless.
+* The LimitlessLED doesn't support setting or reading brightness directly, so when you set brightness the ninja
+  driver sends multiple brightness up/down events to syncronise, then set, the brightness. This seems to work 
+  most of the time, but it can occasionally get out of sync. You might see a slight over compensation as the driver
+  overshoots (to calibrate) and gets back to the desired brightness value.
