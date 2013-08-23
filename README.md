@@ -36,7 +36,10 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
 ![Network Settings](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.39.05%20AM.png)
 
 * Go to the "System" tab
-* Press "Restart System". ![Restart location](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.40.16%20AM.png)
+* Press "Restart System".
+
+![Restart location](https://dl.dropboxusercontent.com/u/13788283/ninjadocs/Screen%20Shot%202013-08-23%20at%2011.40.16%20AM.png)
+
 * If you got your settings right, the LINK light will come up and your bridge will be ready.
 
 ### Pairing lights
