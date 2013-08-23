@@ -49,7 +49,7 @@ Some common problems and reasons:
   complex! Hopefully limitless will release a better firmware update in the future.
 * If the LINK light fails to come on: You probably configured it wrong. Try a different wifi setting, and make
   doubly sure you save the right section in the right order.
-* If the bridge is connected and the LINK light works, but you can't pair a phone app to it, try resetting
+* If the bridge is connected and the LINK light turns on, but you can't pair a phone app to it, try resetting
   everything (unplug, replug), make sure you can access the bridge web UI by visiting `http://<bridge ip you entered>/`
   in your browser. Make sure the IP address is set right on both the web UI and your phone app, pray to the
   test gods some more, etc.
