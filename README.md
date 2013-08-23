@@ -92,10 +92,17 @@ To set up your actual light groups:
   * Select the colour group (four are supported) or "All" for a device that controls all 4 colour groups.
   * Select "White" as the color
 * Press `Save`
+* A new widget will appear to control your light group. Notes on the legacy dashboard widget:
+  * RGB lights change color based on "Hue", white lights ignore this value.
+  * White light color temperature can't be controlled, use the Beta Dashboard widget (see below) for this instead.
+  * Both white and RGB lights support on/off and brightness.
 
 ### Adding the custom widget to BETA Dashboard
 
-Enable the Beta Dashboard if you haven't already:
+For those using the Beta Dashboard, there is a nice widget which detects the capabilities of the individual light
+group, and lets you choose color temperature on white lights as well. You can also fork/customise the widget.
+
+To get started, enable the Beta Dashboard if you haven't already:
 * Go to the `Settings` icon
 * Select the `Preferences` tab
 * Toggle `Enable Beta Dashboard` to Enabled
