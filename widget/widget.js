@@ -160,7 +160,7 @@ drawColorWheel(colorwheel[0], 50, 30, colors);
 
 // RECEIVING DEVICE DATA
 scope.onData = function(data) {
-	console.log( 'DATA', data );
+	//console.log( 'DATA', data );
 	var hex;
 	if ( !data || !data.DA || data.DA.length <= 0 ) {
 		data = {DA:"{\"on\":false}"};
