@@ -189,7 +189,7 @@ scope.onData = function(data) {
 };
 
 //console.log( 'last_data', device.last_data );
-scope.onData( device.last_data );
+scope.onData( device.last_data || {DA:"{\"on\":false}"} );
 
 
 // ACTUATING DEVICE
