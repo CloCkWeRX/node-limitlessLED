@@ -162,7 +162,9 @@ drawColorWheel(colorwheel[0], 50, 30, colors);
 scope.onData = function(data) {
 	console.log( 'DATA', data );
 	var hex;
-	if ( !data || !data.DA || data.DA.length <= 0 ) return;
+	if ( !data || !data.DA || data.DA.length <= 0 ) {
+		data = {DA:"{\"on\":false}"};
+	}
 	if ( data.DA[0] == '{' ) {
 		lastData = JSON.parse( data.DA );
 		hex = lastData._hex;
@@ -189,7 +191,7 @@ scope.onData = function(data) {
 };
 
 //console.log( 'last_data', device.last_data );
-scope.onData( device.last_data || {DA:"{\"on\":false}"} );
+scope.onData( device.last_data  );
 
 
 // ACTUATING DEVICE
