@@ -113,6 +113,8 @@ function generateColorArray(numColors) {
 		var color = 'hsl(' + hue + ', 100%, 50%)';
 		colorArray.push(color);
 	}
+	
+	colorArray.push('#FFFFFF');
 
 	return colorArray;
 }
@@ -217,7 +219,14 @@ colorwheel.on("click", function(event) {
 	if ( fullColorMode ) {
 		var col = new Color( '#' + pval );
 		var hue = parseInt( col.hslData( )[0] * 65535 );
+		
+		// note:
+    // either no saturation (white) or full saturation (colour).
+    // the LLL devices don't support anything else!
+    var sat = col.hslData( )[1] == 0 ? 0 : 254;
+    
 		lastData.hue = hue;
+		lastData.sat = sat;
 	} else {
 		// pull out the white value
 		var whitenessPercent = ( p[2] - (255-100) );
