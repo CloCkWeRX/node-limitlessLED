@@ -12,7 +12,7 @@ var spinner = new Spinner({color:'#666'}).spin(spin_el);
 var GUID = Object.keys(scope.Widget.devices)[0];
 var device = scope.Widget.devices[GUID];
 
-var fullColorMode = ( device.did == 1011 );
+var fullColorMode = ( device.did != 1012 );
 
 var receivedData = false;
 var lastData = {
