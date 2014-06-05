@@ -11,12 +11,13 @@ NinjaBlocks module for LimitlessLED lights (Same as MiLight, EasyBulb, ...)
 Your Ninja Block will need access to the [WiFi Receiver Bridge](http://www.limitlessled.com/shop/wifi-udp-receiver-bridge/) to control your lights.
 If you haven't yet got your WiFi Receiver Bridge on your wireless network, here's a quick guide:
 
-#### Version 3.0 ####
+#### Version 3.0+ ####
 * Reset your Wifi Receiver Bridge
 * Connect your computer to the wifi network "milight"
-* Check your router for the new address assigned by DHCP
-* Open your browser and visit `http://192.168.1.?`
 * Use an app to configure wifi, as per the PDF instructions.
+* Check your router for the new address assigned by DHCP
+* Open your browser and visit `http://192.168.1.?` - check you get prompted for auth
+
 
 #### Version 2.0 ####
 * Reset your Wifi Receiver Bridge
