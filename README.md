@@ -55,14 +55,6 @@ If you haven't yet got your WiFi Receiver Bridge on your wireless network, here'
 * If you got your settings right, the LINK indicator on the bridge will light up and your bridge will be ready.
 
 ### Pairing lights
-*NEW MARCH 2014* Wifi Bridge Receiver 4.0 Instructions
-
-
-*Dual White* LED Instruction Sheet (Cool White/Warm White)
-LimitlessLED_User_Instruction_14_June_2012_version1.pdf
-
-*RGB* Color LED Instruction Sheet
-LimitlessLED_RGB_Remote_Bulb_User_InstructionManual_version1.pdf
 
 Follow the instructions included in the official [WiFi Bridge Instruction PDF - March 2014](http://www.limitlessled.com/download/) or older [WiFi Bridge 2.0 Instruction PDF](http://www.limitlessled.com/download/LimitlessLED_WiFiBridgeInstructions_July2012_version2.pdf)
 to pair your lights, but pair them using the "Wifi Controller 2" or similar app for iPhone/Android
