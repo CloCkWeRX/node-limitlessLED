@@ -151,7 +151,7 @@ load the new widget:
 The WiFi Receiver Bridge is very temperamental, it will probably take a couple of tries to get working.
 
 Some notes that may help:
-
+* The API and hardware is evolving. Check out http://www.limitlessled.com/dev/ if these instructions don't work; and don't forget to give us a pull request!
 * Your WiFi network can't contain spaces, special characters, or anything else that confuses the interface.
   The interface is pretty flakey, so you'll actually need to change your network SSID or password if it's too
   complex! Hopefully limitless will release a better firmware update in the future.
