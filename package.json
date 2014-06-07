@@ -1,8 +1,7 @@
 {
-  "name": "ninja-limitlessLED",
+  "name": "node-limitlessLED",
   "version": "0.0.2",
   "description": "Control LimitlessLED lights",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
