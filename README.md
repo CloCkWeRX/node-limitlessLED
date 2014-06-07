@@ -1,12 +1,101 @@
-## ninja-limitlessLED
+## node-limitlessLED
 
-NinjaBlocks module for LimitlessLED lights (Same as MiLight, EasyBulb, ...)
+Node module for LimitlessLED lights (Same as MiLight, EasyBulb, ...)
 
-![Widgets](http://i.imgur.com/yzq4bPl.png)
+###
+```
+npm install node-limitlessLED
+```
+
+### Usage
+
+```
+var colours = [BLUE, GREEN, CYAN, RED, MAGENTA, YELLOW];
+var lllColourLookup = [LLL_BLUE, LLL_GREEN, LLL_CYAN, LLL_RED, LLL_MAGENTA, LLL_YELLOW];
+```
+
+```
+var light = new LimitlessLightGroup({
+    connectionDetails: {
+      port: 8899, // May be port 50000 for older hubs
+      ipAddress: 192.168.1.1 // IP Address assigned
+    },
+    identifer: "hub-1"
+  }, {
+    colorType: 'rgbw',  // Valid options: rgbw, rgb
+    number: 1 // Corresponds to the channel you paired the light with
+  });
+
+light.doWarmthVoodoo(100, function () {
+  console.log("Success");
+});
+
+light.doBrightnessVoodoo(100, function () {
+  console.log("Success");
+});
+
+light.sendDirectBrightnessCommand(100, function () {
+  console.log("Success");
+});
+
+light.sendRGBColorCommand(hueval, function () {
+  console.log("Success");
+});
+
+light.sendRGBWhiteColorCommand(function () {
+  console.log("Success");
+});
+
+light.repeatCommand(toRepeat, times, function () {
+  console.log("Success");
+});
+
+// TODO Document fully!
+// Takes a string and guesses that it's JSON?
+light.write(data).on('data', function (data) {
+  console.log(data);
+});
+
+light.writeRGBW({
+  bri: 100, 
+  on: true
+  sat: 0 // White mode
+  hue: 100
+});
+
+light.sendBrightnessUpCommand(function () {
+  console.log("Success");
+});
+
+light.sendBrightnessDownCommand(function () {
+  console.log("Success");
+});
+
+light.sendWarmthUpCommand(function () {
+  console.log("Success");
+});
+
+light.sendWarmthDownCommand(function () {
+  console.log("Success");
+});
+
+// "on", "off"
+light.sendWhiteGroupCommand("on", function () {
+  console.log("Success");
+});
+
+// "on", "off", "toWhite"
+light.sendRGBWGroupCommand("off", function () { 
+  console.log("Success");
+});
+
+light.sendRGBLEDOnCommand(true, function () {
+  console.log("Success");
+});
+```
+
 
 ### Setting up your WiFi Receiver Bridge
-
-
 
 Your Ninja Block will need access to the [WiFi Receiver Bridge](http://www.limitlessled.com/shop/wifi-udp-receiver-bridge/) to control your lights.
 If you haven't yet got your WiFi Receiver Bridge on your wireless network, here's a quick guide:
@@ -68,75 +157,6 @@ lights will be paired to your WiFi bridge rather than the original remote, and r
 
 **Make sure your lights are perfectly controllable from the phone app, otherwise the ninja driver will 
 also not be able to control them!**
-
-### Install the driver on your Ninja Block
-
-* SSH into your block: `ssh ubuntu@ninjablock.local`
-* Change to the driver directory: `cd /opt/ninja/drivers`
-* Remove the old driver: `rm -rf ninja-limitlessLED`
-* Remove any old driver configuration left over: `rm -rf ../config/ninja-limitlessLED`
-* Get the new driver: `git clone https://github.com/theojulienne/ninja-limitlessLED.git`
-* Restart the ninjablocks client: `sudo service ninjablock restart`
-
-```sh
-ubuntu@ninjablock:~$ cd /opt/ninja/drivers/
-ubuntu@ninjablock:/opt/ninja/drivers$ rm -rf ninja-limitlessLED
-ubuntu@ninjablock:/opt/ninja/drivers$ rm -rf ../config/ninja-limitlessLED
-ubuntu@ninjablock:/opt/ninja/drivers$ git clone https://github.com/theojulienne/ninja-limitlessLED.git
-Cloning into 'ninja-limitlessLED'...
-remote: Counting objects: 120, done.
-remote: Compressing objects: 100% (64/64), done.
-remote: Total 120 (delta 55), reused 115 (delta 50)
-Receiving objects: 100% (120/120), 19.91 KiB, done.
-Resolving deltas: 100% (55/55), done.
-ubuntu@ninjablock:/opt/ninja/drivers$ sudo service ninjablock restart
-[sudo] password for ubuntu:
-ninjablock stop/waiting
-ninjablock start/running, process 1339
-ubuntu@ninjablock:/opt/ninja/drivers$
-```
-
-### Adding to Dashboard
-
-Initial setup:
-* Press the `Drivers` button in the top right of the Dashboard
-* Press `Configure` next to `Ninja Limitlessled`
-* Press `Configure LimitlessLED Hub`
-* Enter the IP Address of the "WiFi Receiver Bridge" (and enter the port if you changed it)
-* Press `Save`
-
-To set up your actual light groups:
-* Press the `Drivers` button in the top right of the Dashboard
-* Press `Configure` next to `Ninja Limitlessled`
-* Press `Add Light Group`
-* RGB:
-  * RGB currently only supports a single addressing of all RGB lights, so select "All" as the Light Group
-  * Select "RGB" as the color
-* White:
-  * Select the colour group (four are supported) or "All" for a device that controls all 4 colour groups.
-  * Select "White" as the color
-* Press `Save`
-* A new widget will appear to control your light group. Notes on the legacy dashboard widget:
-  * RGB lights change color based on "Hue".
-  * White light color temperature can't be controlled, use the Beta Dashboard widget (see below) for this instead.
-  * Both white and RGB lights support on/off and brightness.
-
-### Adding the custom widget to BETA Dashboard
-
-For those using the Beta Dashboard, there is a nice widget which detects the capabilities of the individual light
-group, and lets you choose color temperature on white lights as well. You can also fork/customise the widget.
-
-To get started, enable the Beta Dashboard if you haven't already:
-* Go to the `Settings` icon
-* Select the `Preferences` tab
-* Toggle `Enable Beta Dashboard` to Enabled
-* You can now see the Beta Dashboard icon on the left
-
-If for some reason you see RGB Color Wheel widgets instead of nice LimitlessLED widgets, you can manually
-load the new widget:
- * Find the appropriate widget (currently look for "allrgb" or "1white" ... "4white" in the device type)
- * Paste `https://gist.github.com/theojulienne/b8e3e09729faa49353b4` in the Gist box and click Gist/Import
- * Your widget will change to give you a color/temperature wheel, brightness slider and on/off button.
 
 
 ### Troubleshooting
